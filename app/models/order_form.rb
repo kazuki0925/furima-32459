@@ -10,7 +10,7 @@ class OrderForm
     validates :house_number
     validates :phone_number, numericality: { only_integer: true, message: 'Input only number' }
   end
-
+  validates :phone_number, length: { maximum: 11 } 
   validates :prefecture_id, numericality: { other_than: 0, message: 'Select' }
 
   def save
