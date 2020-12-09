@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @order_form.valid?
       pay_item
       @order_form.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'orders/index'
     end
@@ -29,17 +29,16 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
-      amount: @order.item.price,  # 商品の値段
-      card: order_params[:token],    # カードトークン
+      amount: @order.item.price, # 商品の値段
+      card: order_params[:token], # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
 
   def move_to_index
     if Order.find_by(item_id: params[:item_id]) || current_user.id == @order.item.user_id
-      redirect_to root_path
-    end
+      redirect_to root_path 
   end
 end

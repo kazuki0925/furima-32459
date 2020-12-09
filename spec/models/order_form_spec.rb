@@ -31,12 +31,12 @@ RSpec.describe OrderForm, type: :model do
         it 'postal_codeにハイフンが含まれていないと購入できない' do
           @order_form.postal_code = '1234567'
           @order_form.valid?
-          expect(@order_form.errors.full_messages).to include("Postal code Input correctly")
+          expect(@order_form.errors.full_messages).to include('Postal code Input correctly')
         end
         it 'postal_codeのハイフンの位置が適切でないと購入できない' do
           @order_form.postal_code = '12-34567'
           @order_form.valid?
-          expect(@order_form.errors.full_messages).to include("Postal code Input correctly")
+          expect(@order_form.errors.full_messages).to include('Postal code Input correctly')
         end
         it 'prefectureが未選択では購入できない' do
           @order_form.prefecture_id = 0
@@ -66,7 +66,7 @@ RSpec.describe OrderForm, type: :model do
         it 'phone_numberにハイフンをつけると購入できない' do
           @order_form.phone_number = '090-0000-0000'
           @order_form.valid?
-          expect(@order_form.errors.full_messages).to include("Phone number Input only number")
+          expect(@order_form.errors.full_messages).to include('Phone number Input only number')
         end
       end
     end
