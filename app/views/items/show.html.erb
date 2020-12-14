@@ -72,8 +72,16 @@
     </table>
     <div class="option">
       <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+      <%= link_to item_favorites_path(@item), method: :post do%>
+        <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <% if Favorite.find_by(user_id: current_user.id, item_id: @item.id) %> 
+        <i class="fas fa-star"></i>
+        <span>お気に入り済み <%= @favorites.length %></span>
+        <% else %>
+        <i class="far fa-star"></i>
+        <span>お気に入り <%= @favorites.length %></span>
+        <% end %>
+      <% end %>
       </div>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
