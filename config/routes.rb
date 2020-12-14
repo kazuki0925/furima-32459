@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :items do
     resources :orders, only: [:index, :create]
+    resources :favorites, only: [:create]
   end
   resources :users, only: [:show]
 end

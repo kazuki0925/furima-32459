@@ -298,10 +298,17 @@ a {
   align-items: center;
 }
 
-.star-icon {
+// .star-icon {
+//   height: 2vh;
+//   width: 2vh;
+//   margin-right: 0.5vw;
+// }
+
+.fa-star {
   height: 2vh;
   width: 2vh;
   margin-right: 0.5vw;
+  color: orange;
 }
 
 .star-count {
