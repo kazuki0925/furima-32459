@@ -149,7 +149,7 @@
             <span><%= item.price %>円<br><%= item.shopping_fee_status[:name] %></span>
             <div class='star-btn'>
               <%# <%= image_tag "star.png", class:"star-icon" %>
-              <% if Favorite.find_by(user_id: current_user.id, item_id: item.id) %> 
+              <% if user_signed_in? && Favorite.find_by(user_id: current_user.id, item_id: item.id) %> 
               <i class="fas fa-star"></i>
               <% else %>
               <i class="far fa-star"></i>
