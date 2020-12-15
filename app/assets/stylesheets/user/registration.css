@@ -158,3 +158,17 @@
   text-align: right;
   cursor: pointer;
 }
+
+.user-edit-btn-contents {
+  width: 50%;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.user-edit-back-btn {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  padding: 15px 35%;
+  text-decoration: none;
+}
